@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<title>Nuraina Firzani's Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+.bgimg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('images/a.png');
+  min-height: 100%;
+}
+</style>
+
+<body>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script>
+        function snow() {
+            //1, define a snowflake template
+            var flake = $("<div>").css({
+                "position": "absolute",
+                "color": "#fff"
+            }).html("❄️");
+ 
+            //Get the width of the page, use this number to calculate, the value of left when the snowflake starts
+            var documentWidth = $(document).width();
+ 
+            //Get the height of the page, which is equivalent to the position of the Y axis when the snowflakes fall
+            var documentHieght = $(document).height();
+ 
+            //Define the number of milliseconds to generate a snowflake
+            var millisec = 100;
+            //2, set the first timer, a periodic timer, and generate a snowflake every time (millisec);
+            setInterval(function() {
+                //Randomly generate the value of left at the beginning of the snowflake falling, which is equivalent to the position of the X axis at the beginning
+                var startLeft = Math.random() * documentWidth;
+ 
+                //Randomly generate the value of left at the end of snowflake falling, which is equivalent to the position of the X axis at the end
+                var endLeft = Math.random() * documentWidth;
+ 
+                // Randomly generate snowflake size
+                var flakeSize = 5 + 20 * Math.random();
+ 
+                //Randomly generate the falling duration of snowflakes
+                var durationTime = 4000 + 7000 * Math.random();
+ 
+                //Randomly generate the transparency at the beginning of falling snowflakes
+                var startOpacity = 0.7 + 0.3 * Math.random();
+ 
+                //Randomly generate the transparency at the end of falling snowflakes
+                var endOpacity = 0.2 + 0.2 * Math.random();
+ 
+                //3. Clone a snowflake template, define the initial style of the snowflake, and stitch it into the page
+                flake.clone().appendTo($("body")).css({
+                    "left": startLeft,
+                    "opacity": startOpacity,
+                    "font-size": flakeSize,
+                    "top": "-25px",
+                }).animate({ //Execute animation
+                    "left": endLeft,
+                    "opacity": endOpacity,
+                    "top": documentHieght
+                }, durationTime, function() {
+                    //4. When the snowflake falls, delete the snowflake.
+                    $(this).remove(); 
+                });
+            }, millisec);
+        };
+        snow();
+    </script>
+
+<body class="w3-black">
+
+<!-- Sidebar with image -->
+<nav class="w3-sidebar w3-hide-medium w3-hide-small" style="width:40%">
+  <div class="bgimg"></div>
+</nav>
+
+<!-- Hidden Sidebar (reveals when clicked on menu icon)-->
+<nav class="w3-sidebar w3-black w3-animate-right w3-xxlarge" style="display:none;padding-top:150px;right:0;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="closeNav()" class="w3-button w3-black w3-xxxlarge w3-display-topright" style="padding:0 12px;">
+    <i class="fa fa-remove"></i>
+  </a>
+  <div class="w3-bar-block w3-center">
+    <a href="#home" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Home</a>
+    <a href="#sum" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Summary</a>
+    <a href="#pic" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Pictures</a>
+    <a href="#obj" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Objective</a>
+    <a href="#edu" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Education</a>
+    <a href="#cur" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Curricullars</a>
+    <a href="#awards" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Awards</a>
+    <a href="#skills" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">
+    Skills</a>
+    <a href="#work" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Work Experience</a>
+    <a href="#ref" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">References</a>
+    <a href="#cont" class="w3-bar-item w3-button w3-text-grey w3-hover-black" onclick="closeNav()">Contact</a>
+  </div>
+</nav>
+
+<!-- Page Content -->
+<div class="w3-main w3-padding-large" style="margin-left:40%">
+
+  <!-- Menu icon to open sidebar -->
+  <span class="w3-button w3-top w3-black w3-xxlarge w3-text-grey w3-hover-text-black" style="width:auto;right:0;" onclick="openNav()"><i class="fa fa-bars"></i></span>
+
+  <!-- Home -->
+  <header class="w3-container w3-center" style="padding:128px 16px" id="home">
+    <h1 class="w3-jumbo w3-animate-right"><b>Nuraina Firzani Binti Mohd Azahani</b></h1>
+    <p>Welcome to My Webpage</p>
+
+  <audio controls autoplay class="w3-container w3-padding-small w3-opacity">
+  <source src="sound/star.ogg" type="audio/ogg">
+  <source src="sound/star.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
+<br>
+    <button class="w3-button w3-black w3-padding-18 w3-margin-top w3-text-grey w3-hover-text-black" onclick="openNav()">
+    <b>Let's Start</b>
+  </button>
+  </header>
+
+  <!-- Pictures Section -->
+  <div class="w3-xxlarge w3-text-white w3-padding-32 w3-content" id="pic">
+    <h2>Pictures Of Me</h2>
+    <hr class="w3-opacity">
+
+    <!-- Grid for photos -->
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half">
+        <img src="images/koko.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity">
+        <img src="images/pic.jpg" style="width:100%">
+      </div>
+
+      <div class="w3-half">
+        <img src="images/arch4.jpg" style="width:100%">
+        <img src="images/arch3.jpg" style="width:100%">
+        <img src="images/arch5.jpg" style="width:100%">
+      </div>
+    <!-- End photo grid -->
+    </div>
+  <!-- End Pictures Section -->
+  </div>
+
+  <!-- Summary Section -->
+
+  <div class="w3-content w3-justify w3-text-white w3-padding-32" id="sum">
+    <h2> Summary</h2>
+    <hr class="w3-opacity">
+    <p>I am a kind of person that demonstrate passion in my education, ambition in fulfilling my personal and academic goals. I am an explorative student too. My passion for learning is the result of my mindset, in that aside from finding education a necessity, I find it enjoyable, challenging, and beneficial in fulfilling my aspirations.
+
+    <p>I enjoy reading books. I used to read stories and fiction in my diploma days. Unfortunately, now I am pretty much grown up and I started to love reading books related to science and Islamic history. I find that reading is beneficial to improve my general knowledge and provides me with an opportunity to spend some time on my own.
+
+    <p>I easily can adapt in various situation such as work under pressure and also a good leader and team player in any organization.
+    </p>
+
+<!-- Objective Section -->
+
+  <div class="w3-content w3-justify w3-text-white w3-padding-32" id="obj">
+    <h2> Objective</h2>
+    <hr class="w3-opacity">
+    <p>Seeking a position as an Information Consultants, Information Manager, Information Specialist, Information Officer or any other relevant position that suitable with my qualification, where I can bring immediate and strategic value and develop current skill set further.
+    </p></div></hr>
+
+  <!-- Education Section -->
+  <div class="w3-content w3-justify w3-text-white w3-padding-32" id="edu">
+    <h2> Education</h2>
+    <hr class="w3-opacity">
+   <img src="images/uitm.png" alt="Avatar" class="w3-left w3-margin-right" style="width:130px">
+    <p><span class="w3-large w3-text-white w3-margin-right"><b>Bachelor of Information Science (Hons.) Information System Management</b></span><span class="w3-padding-small w3-text-grey w3-margin-right">[March 2021 — Present]</p></span>
+    <p>Universiti Teknologi MARA (UiTM) Machang, Kelantan </p>
+   <b>Subject taken: </b>Library skills, Management of Internet Information Sources, Information Management, Information & Communication Technology (ICT)
+   <br></br>
+
+   <hr class="w3-opacity">
+
+    <img src="images/uitm.png" alt="Avatar" class="w3-left w3-margin-right" style="width:130px">
+    <p><span class="w3-large w3-text-white w3-margin-right"><b>Diploma in Accounting Information System</b></span><span class="w3-padding-small w3-text-grey w3-margin-right">[July 2018 — January 2021]</span>
+    <p>Universiti Teknologi MARA (UiTM) Arau, Perlis </p>
+    <b>Subject taken: </b>Business Mathematics, Computerized Accounting, Principle of Databases, Financial Accounting 1-5, Data Management, Cost and Management, Accounting System, E-commerce, Computerized Auditing<br></br>
+
+    <hr class="w3-opacity">
+
+    <img src="images/mh.png" alt="SMKA MH" class="w3-left w3-margin-right" style="width:130px">
+    <p><span class="w3-large w3-text-white w3-margin-right"><b>Non-science stream (ICT)</b></span><span class="w3-padding-small w3-text-grey w3-margin-right">[2016 — 2017]</span>
+    <p>Sek. Men. Keb. Agama Maahad Hamidiah, Kajang </p>
+    <b>Subject taken: </b> Information Communication & Technology, Quran Sunnah, Syariah Islamiah, Additional Mathematics, Physics, Chemistry.
+    </div></hr>
+
+<br>
+<br>
+
+  <!-- Grid for youtube -->
+    <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-half">
+        <iframe width="350" height="300" class="w3-container w3-center" src="https://www.youtube.com/embed/2wssLMhjwwY?controls=0"></iframe>
+      </div>
+
+      <div class="w3-half">
+        <iframe width="350" height="300" class="w3-container w3-center" src="https://www.youtube.com/embed/d7vABVmQRAg?controls=0"></iframe></div>
+
+ <!-- End photo grid -->
+    </div>
+  <!-- End Pictures Section -->
+  </div>
+
+<!-- Curricullars Section -->
+<div class="w3-content w3-margin-right w3-text-white w3-padding-32" id="cur">
+  <h2> Curricullars</h2>
+  <hr class="w3-opacity">
+  
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th>Position</th>
+    <th>Education Level</th>
+    <th>Year</th>
+  </tr>
+ 
+  <tr>
+    <td><ul>
+    <li style="list-style-type: disc;">Secretary of Majlis Tertinggi Kolej (MTK)</li></td>
+    <td>University</td>
+    <td>2018-2020</td>
+  </tr>
+
+  <tr>
+    <td><ul style="list-style-type:disc;">
+  <p><li>Assistant leader of Netball team for Faculty of Accountancy</li></td>
+    <td>University</td>
+    <td>2019</td>
+  </tr>
+
+  <tr>
+    <td><ul style="list-style-type:disc;">
+  <p><li>Assistant president of MAHA Archery Club</li>
+</td>
+    <td>High School</td>
+    <td>2016-2017</td>
+  </tr>
+
+  <tr>
+    <td><ul style="list-style-type:disc;">
+  <p><li>Treasurer of MAHA Archery Club</p></li></td>
+    <td>High School</td>
+    <td>2015</td>
+  </tr></div></hr></style>
+</table>
+
+<!-- Skills Section -->
+  <div class="w3-content w3-justify w3-text-white w3-padding-32" id="skills">
+  <h2> My Skills</h2>
+  <hr class="w3-opacity">
+  <p class="w3-wide">Proficient in Microsoft Word, Power Point and Excel</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:98%">98%</div>
+    </div>
+
+    <p class="w3-wide">Communication skills in Malay, English and Arabic</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:95%">95%</div>
+    </div>
+
+    <p class="w3-wide">Proficient in accounting software; SQL, MYOB</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:88%">88%</div>
+    </div>
+
+    <p class="w3-wide">Web Design</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:85%">85%</div>
+    </div>
+    <p class="w3-wide">Photoshop</p>
+    <div class="w3-light-grey">
+      <div class="w3-container w3-center w3-padding-small w3-dark-grey" style="width:85%">85%</div>
+    </div><br>
+
+  <!-- Awards Section -->
+  <div class="w3-content w3-justify w3-text-white w3-padding-32" id="awards">
+  <h2> Awards</h2>
+  <hr class="w3-opacity">
+  <p> 
+    <div class="w3-row w3-center w3-grey w3-padding-16 w3-section">
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">1</span><br>
+        International-<br>participants Writing Essay
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">2+</span><br>
+        University-<br>netball 
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">6+</span><br>
+        National-<br>Archery sports
+      </div>
+      <div class="w3-quarter w3-section">
+        <span class="w3-xlarge">15+</span><br>
+        District level-<br>archery
+      </div>
+    </div>
+
+  <br>
+
+<!-- Work Experience Section -->
+
+  <div class="w3-content w3-padding-32 w3-text-white" id="work" style="margin-bottom:64px">
+    <h2>Work Experiences</h2>
+    <hr class="w3-opacity">  
+
+    <p><span class="w3-large w3-text-white w3-margin-right"><b>Pusat Pengajian Al-Mansoorah</b></span><span class="w3-padding-small w3-text-grey w3-margin-right"><sub>[Aug 2013 — Jan 2014]</p></span></sub>
+      <p><i>Part-time as a teacher</p></i>
+
+      <ol type="1">
+ 
+    <p><li>Have taught all subjects for islamic school syllabus such as Arab, Tajwid, Tauhid, Feqah, Akhlak and Jawi.</li></p>
+
+    <p><li>Have been organized students’ document of information and fees.</li></p>
+
+    <p><li>Knowledgeable in basic Teaching Standards.</li></p>
+    </ol>
+
+   <hr class="w3-opacity">
+
+  <p><span class="w3-large w3-text-white w3-margin-right"><b>Karangkraf Mall, Shah Alam</b></span>
+  <span class="w3-padding-small w3-text-grey w3-margin-right"><sub>[July 2019 - March 2020]</sub></span></p>
+    <p><i>Part-time as a teacher</p></i>
+    <ol type="1">
+ 
+    <p><li>Attended courses to handle the work.</li>
+
+    <p><li>Knowledgeable in basic accounting standard.</li></p>
+    </ol>
+  </div></hr>
+
+<!-- References Section -->
+<div class="w3-content w3-justify w3-text-white w3-padding-32" id="ref">
+  <h2> References</h2>
+  <hr class="w3-opacity">
+  <p> Norziana Bt Yahya
+<br>Senior lecturer
+<br>UiTM Arau, Perlis
+<br>Email: ziana76@uitm.edu.my
+<br>Phone: 018-287 2622</div>
+
+<!-- Contact Section -->
+
+  <div class="w3-padding-32 w3-content w3-text-white" id="cont" style="margin-bottom:64px">
+    <h2>Contact Me</h2>
+    <hr class="w3-opacity">
+
+    <div class="w3-section w3-opacity">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Kangar, Perlis</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: 011-11140730</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: nurainafirzani23@gmail.com</p>
+    </div>
+     <br>
+ <!-- Location/map Section -->
+
+    <div class="mapouter"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=TamanGasingJejawi&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+    </div><style>.mapouter{position:relative;text-align:right;width:700px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:700px;height:400px;}.gmap_iframe {width:700px!important;height:400px!important;}</style></div>
+   
+   <br>
+   <br>
+
+ <!-- Message/contact Section -->
+
+    <p>Lets get in touch. Send me a message:</p>
+    <form action=mailto:nurainafirzani23@gmail.com" method="post" enctype="text/plain">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Email" required name="Email"></p>
+  
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+       <button class="w3-button w3-light-grey w3-padding-large" type="reset">
+       <i class="fa fa-trash"></i> RESET</button></form>
+      </p>
+    </form>
+  <!-- End Contact Section -->
+  </div>  
+  
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge" style="margin:-24px">
+    
+    <a href="#home" class="w3-button w3-medium w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+<br>
+    <a href="https://www.facebook.com/nurainafirzani/"target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></a></i>
+    
+    <a href="https://www.instagram.com/pijaney/?hl=en" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+    
+    <a href="https://www.pinterest.com/nfirzani23/_saved/" target="_blank"><i class="fa fa-pinterest-p w3-hover-opacity"></i></a>
+    
+    <a href="https://twitter.com/pijaney" target="_blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+    
+    <a href="https://www.linkedin.com/in/nuraina-firzani-05033b1b9/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+    
+    <i><p class="w3-medium">Created by Nuraina Firzani 2022</p></i>
+  <!-- End footer -->
+  </footer>
+  
+<!-- END PAGE CONTENT -->
+</div>
+
+<script>
+// Open and close sidebar
+function openNav() {
+  document.getElementById("mySidebar").style.width = "60%";
+  document.getElementById("mySidebar").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+ 
